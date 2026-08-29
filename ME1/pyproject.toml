@@ -1,0 +1,18 @@
+[project]
+name = "ai231-me1"
+version = "0.1.0"
+description = "Manual three-layer CNN for MNIST classification"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "einops>=0.8.1",
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.9.0",
+    "nbconvert>=7.16.4",
+    "notebook>=7.3.0",
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
+]
+
+[tool.uv]
+package = false
