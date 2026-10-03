@@ -1,0 +1,23 @@
+{
+  "deployment_seed": 231,
+  "holdout_evaluated": false,
+  "holdout_next_step": "Run scripts/evaluate_holdout.py on the Raspberry Pi 5 after accepting this ablation.",
+  "metadata": "/mnt/jfs_hpc/home/edward.vincent.duero/ME2/models/experiments/tiny_conformer_negative_ablation/runs/tiny_conformer/supplemented_mixed/binary_scope/seed_231/deployment_metadata.json",
+  "model": "/mnt/jfs_hpc/home/edward.vincent.duero/ME2/models/experiments/tiny_conformer_negative_ablation/runs/tiny_conformer/supplemented_mixed/binary_scope/seed_231/model.onnx",
+  "selection_source": "two-seed validation-only fixed-condition ablation",
+  "test_used_for_selection": false,
+  "winner": {
+    "architecture": "tiny_conformer",
+    "data_condition": "supplemented_mixed",
+    "rejection_strategy": "binary_scope",
+    "seeds": [
+      231,
+      947
+    ],
+    "validation_constraints_met_for_every_seed": false,
+    "validation_false_accept_rate_mean": 0.048109965635738834,
+    "validation_false_reject_rate_mean": 0.5486725663716814,
+    "validation_intent_macro_f1_mean": 0.7280138953782715,
+    "validation_joint_accuracy_mean": 0.6198093941456774
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "contract_version": "1.0.0",
+  "mode": "mixed",
+  "rules": {
+    "announce_before_execute": true,
+    "reject_missing_required_slot": true,
+    "reject_low_confidence": true,
+    "real_external_side_effects_enabled": true,
+    "approved_real_handlers": [
+      "get_weather",
+      "get_time",
+      "send_message",
+      "increase_volume",
+      "decrease_volume",
+      "create_reminder",
+      "list_reminders",
+      "turn_on_wayne_manor_lights",
+      "turn_off_wayne_manor_lights",
+      "set_wayne_manor_temperature",
+      "set_wayne_manor_brightness",
+      "set_wayne_manor_color",
+      "play_music",
+      "pause_music",
+      "stop_music",
+      "next_music",
+      "start_call",
+      "set_timer",
+      "set_alarm"
+    ]
+  },
+  "actions": [
+    {"intent": "PLAY_MUSIC", "handler": "play_music", "required_slots": []},
+    {"intent": "WEATHER", "handler": "get_weather", "required_slots": []},
+    {"intent": "TIME", "handler": "get_time", "required_slots": []},
+    {"intent": "LIGHT_ON", "handler": "turn_on_wayne_manor_lights", "required_slots": []},
+    {"intent": "LIGHT_OFF", "handler": "turn_off_wayne_manor_lights", "required_slots": []},
+    {"intent": "PAUSE", "handler": "pause_music", "required_slots": []},
+    {"intent": "STOP", "handler": "stop_music", "required_slots": []},
+    {"intent": "NEXT", "handler": "next_music", "required_slots": []},
+    {"intent": "VOLUME_UP", "handler": "increase_volume", "required_slots": []},
+    {"intent": "VOLUME_DOWN", "handler": "decrease_volume", "required_slots": []},
+    {"intent": "CALL", "handler": "start_call", "required_slots": []},
+    {"intent": "MESSAGE", "handler": "send_message", "required_slots": []},
+    {"intent": "LIST_REMINDERS", "handler": "list_reminders", "required_slots": []},
+    {"intent": "TIMER", "handler": "set_timer", "required_slots": ["duration"]},
+    {"intent": "ALARM", "handler": "set_alarm", "required_slots": ["time"]},
+    {"intent": "TEMPERATURE", "handler": "set_wayne_manor_temperature", "required_slots": ["degrees"]},
+    {"intent": "BRIGHTNESS", "handler": "set_wayne_manor_brightness", "required_slots": ["percent"]},
+    {"intent": "COLOR", "handler": "set_wayne_manor_color", "required_slots": ["color"]},
+    {"intent": "CREATE_REMINDER", "handler": "create_reminder", "required_slots": ["task"]}
+  ]
+}

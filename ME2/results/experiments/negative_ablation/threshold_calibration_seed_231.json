@@ -1,0 +1,47 @@
+{
+  "source": "models/experiments/tiny_conformer_negative_ablation/runs/tiny_conformer/supplemented_mixed/binary_scope/seed_231/validation_predictions.jsonl",
+  "selection_split": "validation_only",
+  "test_or_holdout_loaded": false,
+  "policy": {
+    "execute_when": "in_scope_score >= scope_threshold and intent_confidence >= intent_threshold",
+    "precision_target": 0.95,
+    "unsupported_execution_rate_limit": 0.05,
+    "objective": "maximize_correctly_executed_supported_commands"
+  },
+  "recommended": {
+    "scope_threshold": 0.9998739957809448,
+    "intent_threshold": 0.873084306716919,
+    "validation_records": 1760,
+    "supported_records": 1469,
+    "unsupported_records": 291,
+    "executed": 681,
+    "correctly_executed": 647,
+    "wrong_supported_executed": 23,
+    "unsupported_executed": 11,
+    "action_precision": 0.9500734214390602,
+    "correct_supported_coverage": 0.4404356705241661,
+    "wrong_supported_execution_rate": 0.015656909462219197,
+    "unsupported_execution_rate": 0.037800687285223365,
+    "selection_score": [
+      647,
+      0.9500734214390602,
+      -11,
+      -23
+    ]
+  },
+  "current_policy": {
+    "scope_threshold": 0.9999269247055054,
+    "intent_threshold": 0.7,
+    "validation_records": 1760,
+    "supported_records": 1469,
+    "unsupported_records": 291,
+    "executed": 730,
+    "correctly_executed": 673,
+    "wrong_supported_executed": 46,
+    "unsupported_executed": 11,
+    "action_precision": 0.9219178082191781,
+    "correct_supported_coverage": 0.45813478556841386,
+    "wrong_supported_execution_rate": 0.031313818924438394,
+    "unsupported_execution_rate": 0.037800687285223365
+  }
+}

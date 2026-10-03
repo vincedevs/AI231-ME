@@ -1,0 +1,17 @@
+.venv/
+.env
+secrets/
+.DS_Store
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+logs/
+captures/
+benchmark_results/
+data/*.sqlite3
+data/*.sqlite3-shm
+data/*.sqlite3-wal
+assets/models/asr/
+:memory:.ses

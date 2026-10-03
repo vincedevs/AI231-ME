@@ -1,0 +1,109 @@
+{
+  "bundle_version": "1.0.0",
+  "target": "raspberry_pi_5_arm64",
+  "sample_rate": 16000,
+  "artifacts": {
+    "wake_word": {
+      "files": {
+        "hey_alfred": {
+          "path": "assets/models/wake_word/hey_alfred.onnx",
+          "sha256": "5402e10b10e946243949064463254428b4c7c05fa6ac9a9c96b5c022f1064aa6",
+          "size_bytes": 205430,
+          "source_name": "hey_alfred.onnx"
+        },
+        "im_batman": {
+          "path": "assets/models/wake_word/im_batman.onnx",
+          "sha256": "8096621acc33b95c9a013aa203b11eb27ee29782fe0e009c675bf3c17d45a195",
+          "size_bytes": 205430,
+          "source_name": "im_batman.onnx"
+        },
+        "melspectrogram": {
+          "path": "assets/models/wake_word/melspectrogram.onnx",
+          "sha256": "ba2b0e0f8b7b875369a2c89cb13360ff53bac436f2895cced9f479fa65eb176f",
+          "size_bytes": 1087958,
+          "source_name": "melspectrogram.onnx"
+        },
+        "embedding": {
+          "path": "assets/models/wake_word/embedding.onnx",
+          "sha256": "70d164290c1d095d1d4ee149bc5e00543250a7316b59f31d056cff7bd3075c1f",
+          "size_bytes": 1326578,
+          "source_name": "embedding_model.onnx"
+        }
+      }
+    },
+    "vad": {
+      "files": {
+        "silero": {
+          "path": "assets/models/vad/silero_vad.onnx",
+          "sha256": "a35ebf52fd3ce5f1469b2a36158dba761bc47b973ea3382b3186ca15b1f5af28",
+          "size_bytes": 1807522,
+          "source_name": "silero_vad.onnx"
+        }
+      }
+    },
+    "tts": {
+      "engine": "sherpa_onnx_vits",
+      "voice": "en_GB-alan-medium",
+      "source_archive_sha256": "a48d4017da0f77668b27bed63fe6e04dd64c6397e1fadad4f460efb0ef7c9012",
+      "files": {
+        "model": {
+          "path": "assets/models/tts/vits-piper-en_GB-alan-medium/en_GB-alan-medium.onnx",
+          "sha256": "d907c48857000940104a9ad3248a94617df917d1a525c9495490fdbf87fd54b2",
+          "size_bytes": 63201430
+        },
+        "configuration": {
+          "path": "assets/models/tts/vits-piper-en_GB-alan-medium/en_GB-alan-medium.onnx.json",
+          "sha256": "c0f0d124e5895c00e7c03b35dcc8287f319a6998a365b182deb5c8e752ee8c1e",
+          "size_bytes": 4888
+        },
+        "tokens": {
+          "path": "assets/models/tts/vits-piper-en_GB-alan-medium/tokens.txt",
+          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
+          "size_bytes": 921
+        },
+        "model_card": {
+          "path": "assets/models/tts/vits-piper-en_GB-alan-medium/MODEL_CARD",
+          "sha256": "abcbc3e961124398911436acd9eaaa0ab167cdf221d5a24146aa08732c52630f",
+          "size_bytes": 320
+        }
+      },
+      "directories": {
+        "espeak_data": {
+          "path": "assets/models/tts/vits-piper-en_GB-alan-medium/espeak-ng-data",
+          "sha256": "b3f6688b4d9484d21385bf9b2cee704f1bb146c704a3db2674299af1e9b388da",
+          "file_count": 355
+        }
+      }
+    },
+    "vcm": {
+      "default_variant": "current",
+      "bundle_id": "21c7b228fd63-20559251ca67",
+      "path": "assets/models/vcm/21c7b228fd63-20559251ca67/model.onnx",
+      "sha256": "21c7b228fd63113f29d3480b4da7c3b19d3fa22ca5406b01de444f7f478b12a2",
+      "size_bytes": 4554103,
+      "metadata_path": "assets/models/vcm/21c7b228fd63-20559251ca67/metadata.json",
+      "metadata_sha256": "3d91572a289398a1c0f45fbbeaf6b3b86d50755e2ad18c1ae906283b06ea25f5",
+      "metadata_size_bytes": 1840,
+      "variants": {
+        "current": {
+          "bundle_id": "21c7b228fd63-20559251ca67",
+          "path": "assets/models/vcm/21c7b228fd63-20559251ca67/model.onnx",
+          "sha256": "21c7b228fd63113f29d3480b4da7c3b19d3fa22ca5406b01de444f7f478b12a2",
+          "size_bytes": 4554103,
+          "metadata_path": "assets/models/vcm/21c7b228fd63-20559251ca67/metadata.json",
+          "metadata_sha256": "3d91572a289398a1c0f45fbbeaf6b3b86d50755e2ad18c1ae906283b06ea25f5",
+          "metadata_size_bytes": 1840
+        },
+        "3a2a": {
+          "bundle_id": "3a2a4c8540bd-67de9defe703",
+          "path": "assets/models/vcm/3a2a4c8540bd-67de9defe703/model.onnx",
+          "sha256": "3a2a4c8540bdb158f103f38439a77d455d814abeffe5e37160cc508ef84a6058",
+          "size_bytes": 4554103,
+          "metadata_path": "assets/models/vcm/3a2a4c8540bd-67de9defe703/metadata.json",
+          "metadata_sha256": "67de9defe703b9370363a6bd44d790ed859b73656db71d13da92020fa0593c98",
+          "metadata_size_bytes": 2026
+        }
+      }
+    }
+  }
+}

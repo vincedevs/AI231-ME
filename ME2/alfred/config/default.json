@@ -1,0 +1,178 @@
+{
+  "config_version": "1.0.0",
+  "audio": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "block_samples": 480,
+    "input_device": null,
+    "output_device": null,
+    "use_system_default_output": true,
+    "feedback_gain": 0.15,
+    "tts_gain": 0.15,
+    "queue_blocks": 200
+  },
+  "wake_word": {
+    "chunk_samples": 1280,
+    "hey_alfred_threshold": 0.5,
+    "im_batman_threshold": 0.5,
+    "required_hits": 2,
+    "cooldown_seconds": 1.5
+  },
+  "command_capture": {
+    "vad_threshold": 0.5,
+    "speech_start_ms": 60,
+    "pre_roll_ms": 210,
+    "minimum_speech_ms": 180,
+    "end_silence_ms": 600,
+    "post_roll_ms": 300,
+    "speech_start_timeout_seconds": 4.0,
+    "maximum_command_seconds": 12.0
+  },
+  "clarification": {
+    "enabled": false,
+    "minimum_slot_confidence": 0.8,
+    "maximum_response_seconds": 8.0,
+    "prompts": {
+      "CREATE_REMINDER": "What should I remind you about?",
+      "TIMER": "How long should I set the timer for? Say the number and seconds, minutes, or hours.",
+      "ALARM": "What time should I set the alarm for? For example, four PM.",
+      "TEMPERATURE": "What temperature should I set?",
+      "BRIGHTNESS": "What brightness percentage should I use?",
+      "COLOR": "What color should I use?"
+    },
+    "asr": {
+      "engine": "sherpa_onnx_moonshine_v2",
+      "encoder_path": "assets/models/asr/moonshine-v2-tiny-en/encoder_model.ort",
+      "decoder_path": "assets/models/asr/moonshine-v2-tiny-en/decoder_model_merged.ort",
+      "tokens_path": "assets/models/asr/moonshine-v2-tiny-en/tokens.txt",
+      "threads": 2
+    }
+  },
+  "vcm": {
+    "mode": "onnx",
+    "mock_decision": "execute",
+    "mock_intent": "LIGHT_ON",
+    "mock_intent_confidence": 0.99,
+    "mock_in_scope_score": 0.99,
+    "mock_slots": {},
+    "minimum_intent_confidence": 0.866007924079895,
+    "minimum_waveform_rms": 0.0001,
+    "onnx_threads": 2
+  },
+  "tts": {
+    "enabled": true,
+    "engine": "sherpa_onnx_vits",
+    "voice": "en_GB-alan-medium",
+    "threads": 2,
+    "speed": 1.3,
+    "silence_scale": 0.2,
+    "response_segment_pause_seconds": 0.4
+  },
+  "actions": {
+    "enabled_intents": [
+      "PLAY_MUSIC",
+      "WEATHER",
+      "TIME",
+      "LIGHT_ON",
+      "LIGHT_OFF",
+      "PAUSE",
+      "STOP",
+      "NEXT",
+      "VOLUME_UP",
+      "VOLUME_DOWN",
+      "CALL",
+      "MESSAGE",
+      "LIST_REMINDERS",
+      "CREATE_REMINDER",
+      "TIMER",
+      "ALARM",
+      "TEMPERATURE",
+      "BRIGHTNESS",
+      "COLOR"
+    ],
+    "database_path": "data/state.sqlite3",
+    "weather": {
+      "location_name": "Quezon City",
+      "latitude": 14.6488,
+      "longitude": 121.0509,
+      "temperature_unit": "celsius",
+      "location_prompt": "Which location should I check?",
+      "maximum_location_characters": 100,
+      "timeout_seconds": 5.0,
+      "cache_seconds": 600.0
+    },
+    "volume": {
+      "step_percent": 5,
+      "linux_maximum_percent": 100,
+      "timeout_seconds": 2.0
+    },
+    "scheduler": {
+      "maximum_timer_seconds": 604800,
+      "command_timeout_seconds": 5.0,
+      "alert_repeat_count": 3,
+      "alert_interval_seconds": 1.0
+    },
+    "reminders": {
+      "max_task_characters": 240,
+      "spoken_limit": null
+    },
+    "call": {
+      "backend": "wayne_manor",
+      "linphone_executable": "linphonecsh",
+      "linphone_destination_environment": "ALFRED_LINPHONE_DESTINATION",
+      "command_timeout_seconds": 8.0
+    },
+    "google_chat": {
+      "webhook_url_environment": "ALFRED_GOOGLE_CHAT_WEBHOOK_URL",
+      "fallback_messages": [
+        "Hello. Alfred is checking in on behalf of my user.",
+        "Just a quick message from Alfred. Everything is all right.",
+        "Alfred here. My user asked me to send you a quick hello.",
+        "A brief note from Alfred. I hope you are doing well.",
+        "Hello from Alfred. This is a short automated message."
+      ],
+      "fallback_message_seed": null,
+      "recipient_prompt": "Who should I address the message to?",
+      "message_prompt": "What message should I send?",
+      "maximum_recipient_characters": 60,
+      "maximum_message_characters": 500,
+      "timeout_seconds": 5.0
+    },
+    "wayne_manor": {
+      "base_url": "http://127.0.0.1:8765/api/v1",
+      "base_url_environment": "ALFRED_WAYNE_MANOR_URL",
+      "default_light_group": "living-room",
+      "default_thermostat": "living-room-climate",
+      "temperature_unit": "celsius",
+      "timeout_seconds": 8.0,
+      "fallback_temperature_degrees": 24,
+      "minimum_temperature_degrees": 16,
+      "maximum_temperature_degrees": 30,
+      "fallback_brightness_percent": 65,
+      "fallback_colors": [
+        "white",
+        "warm white",
+        "cool white",
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple"
+      ],
+      "fallback_color_seed": 231
+    }
+  },
+  "runtime": {
+    "api_probe_timeout_seconds": 1.0,
+    "post_feedback_cooldown_seconds": 0.5,
+    "log_level": "INFO",
+    "retain_command_audio": false
+  },
+  "paths": {
+    "action_contract": "config/action_contract.json",
+    "vcm_schema": "config/vcm_schema.json",
+    "feedback": "config/feedback.json",
+    "model_manifest": "assets/models/manifest.json"
+  }
+}

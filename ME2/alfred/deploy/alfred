@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Make the same CLI available outside Alfred's virtual environment. When the
+# environment is active its generated `alfred` console script reaches this same
+# Python entry point directly, so both paths behave identically.
+
+ALFRED_PYTHON="$HOME/alfred/.venv/bin/python"
+if [[ ! -x "$ALFRED_PYTHON" ]]; then
+  echo "error: Alfred's Python environment is missing: $ALFRED_PYTHON" >&2
+  exit 2
+fi
+exec "$ALFRED_PYTHON" -m alfred "$@"

@@ -1,0 +1,92 @@
+{
+  "cpu_latency_two_second_audio_ms": {
+    "host_specific": true,
+    "median": 9.777652099728584,
+    "p95": 9.777652099728584,
+    "runs": 1
+  },
+  "input_contract": {
+    "lengths": "int64[batch]",
+    "minimum_samples": 400,
+    "sample_rate": 16000,
+    "waveform": "float32[batch,samples]"
+  },
+  "parameter_count": 144381,
+  "parity": [
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 3.725290298461914e-09,
+      "output": "intent_logits"
+    },
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 1.4901161193847656e-08,
+      "output": "slot_logits"
+    },
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "scope_logits"
+    },
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "sequence_lengths"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 7.450580596923828e-09,
+      "output": "intent_logits"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 1.4901161193847656e-08,
+      "output": "slot_logits"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "scope_logits"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "sequence_lengths"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 7.450580596923828e-09,
+      "output": "intent_logits"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 1.4901161193847656e-08,
+      "output": "slot_logits"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "scope_logits"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "sequence_lengths"
+    }
+  ],
+  "path": "/mnt/jfs_hpc/home/edward.vincent.duero/ME2/models/experiments/ai231_me2_voice_commands_budgeted/onnx_preflight/tcresnet.onnx",
+  "size_bytes": 1274538,
+  "trainable_parameter_count": 144381
+}

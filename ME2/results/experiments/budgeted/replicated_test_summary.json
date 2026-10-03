@@ -1,0 +1,16 @@
+[
+  {
+    "architecture": "tiny_conformer",
+    "data_condition": "supplemented_mixed",
+    "real_test_false_reject_rate_mean": 0.5425667090216011,
+    "real_test_joint_accuracy_mean": 0.6105463786531131,
+    "real_test_macro_f1_mean": 0.6975009029849784,
+    "real_test_macro_f1_std": 0.0586498545762183,
+    "rejection_strategy": "binary_scope",
+    "seeds": [
+      231,
+      947
+    ],
+    "test_false_accept_rate_mean": 0.06060606060606061
+  }
+]

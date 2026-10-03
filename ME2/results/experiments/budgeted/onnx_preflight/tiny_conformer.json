@@ -1,0 +1,92 @@
+{
+  "cpu_latency_two_second_audio_ms": {
+    "host_specific": true,
+    "median": 8.1500094383955,
+    "p95": 8.1500094383955,
+    "runs": 1
+  },
+  "input_contract": {
+    "lengths": "int64[batch]",
+    "minimum_samples": 400,
+    "sample_rate": 16000,
+    "waveform": "float32[batch,samples]"
+  },
+  "parameter_count": 936349,
+  "parity": [
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 3.3527612686157227e-07,
+      "output": "intent_logits"
+    },
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 8.642673492431641e-07,
+      "output": "slot_logits"
+    },
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 1.7881393432617188e-07,
+      "output": "scope_logits"
+    },
+    {
+      "audio_seconds": 1.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "sequence_lengths"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 2.682209014892578e-07,
+      "output": "intent_logits"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 1.0728836059570312e-06,
+      "output": "slot_logits"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 2.980232238769531e-07,
+      "output": "scope_logits"
+    },
+    {
+      "audio_seconds": 2.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "sequence_lengths"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 6.556510925292969e-07,
+      "output": "intent_logits"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 1.1324882507324219e-06,
+      "output": "slot_logits"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 1.7881393432617188e-07,
+      "output": "scope_logits"
+    },
+    {
+      "audio_seconds": 3.0,
+      "close": true,
+      "maximum_absolute_error": 0.0,
+      "output": "sequence_lengths"
+    }
+  ],
+  "path": "/mnt/jfs_hpc/home/edward.vincent.duero/ME2/models/experiments/ai231_me2_voice_commands_budgeted/onnx_preflight/tiny_conformer.onnx",
+  "size_bytes": 4534821,
+  "trainable_parameter_count": 936349
+}

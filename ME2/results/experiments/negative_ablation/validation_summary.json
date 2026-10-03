@@ -1,0 +1,30 @@
+[
+  {
+    "architecture": "tiny_conformer",
+    "data_condition": "supplemented_mixed",
+    "rejection_strategy": "binary_scope",
+    "seeds": [
+      231,
+      947
+    ],
+    "validation_constraints_met_for_every_seed": false,
+    "validation_false_accept_rate_mean": 0.048109965635738834,
+    "validation_false_reject_rate_mean": 0.5486725663716814,
+    "validation_intent_macro_f1_mean": 0.7280138953782715,
+    "validation_joint_accuracy_mean": 0.6198093941456774
+  },
+  {
+    "architecture": "tiny_conformer",
+    "data_condition": "supplemented_mixed_with_negatives",
+    "rejection_strategy": "binary_scope",
+    "seeds": [
+      231,
+      947
+    ],
+    "validation_constraints_met_for_every_seed": false,
+    "validation_false_accept_rate_mean": 0.048109965635738834,
+    "validation_false_reject_rate_mean": 0.5211027910142954,
+    "validation_intent_macro_f1_mean": 0.7224334246805997,
+    "validation_joint_accuracy_mean": 0.6201497617426821
+  }
+]

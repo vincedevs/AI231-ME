@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080a11" />
+    <link rel="icon" type="image/x-icon" href="/alfred_logo.ico" />
+    <title>Wayne Manor</title>
+  </head>
+  <body class="mode-display">
+    <main id="app">
+      <div id="scene" aria-label="Interactive Wayne Manor visualization"></div>
+
+      <header class="brand-panel surface">
+        <p class="eyebrow">Alfred environment</p>
+        <h1>Wayne Manor</h1>
+        <div class="connection-row">
+          <span id="connection-dot" class="connection-dot" aria-hidden="true"></span>
+          <span id="connection-status">Connecting</span>
+        </div>
+      </header>
+
+      <aside class="control-panel surface" aria-label="Wayne Manor controls">
+        <section>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Living room</p>
+              <h2>Lighting</h2>
+            </div>
+            <span id="power-state" class="state-pill">On</span>
+          </div>
+
+          <div class="button-row development-only" role="group" aria-label="Light power">
+            <button id="power-on" type="button">Lights on</button>
+            <button id="power-off" type="button" class="secondary">Lights off</button>
+          </div>
+
+          <div class="development-only">
+            <label class="field-label" for="brightness">
+              Brightness <output id="brightness-value" for="brightness">65%</output>
+            </label>
+            <input id="brightness" type="range" min="0" max="100" value="65" step="1" />
+
+            <span class="field-label">Color</span>
+            <div id="color-options" class="color-options" role="group" aria-label="Light color"></div>
+          </div>
+
+          <div class="display-only light-summary">
+            <span>Brightness</span>
+            <output id="display-brightness">65%</output>
+            <span id="display-color" class="color-indicator" aria-label="Warm white"></span>
+          </div>
+        </section>
+
+        <section class="thermostat-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Climate</p>
+              <h2>Temperature</h2>
+            </div>
+            <div class="temperature-reading">
+              <strong id="temperature-value">24</strong><span id="temperature-unit">°C</span>
+            </div>
+          </div>
+
+          <div class="temperature-gauge" aria-hidden="true">
+            <div id="temperature-fill" class="temperature-fill"></div>
+          </div>
+          <div class="range-labels">
+            <span id="temperature-minimum">16°</span>
+            <span id="temperature-maximum">30°</span>
+          </div>
+          <form id="temperature-form" class="temperature-form development-only">
+            <label for="temperature-input">Setpoint</label>
+            <input id="temperature-input" type="number" step="0.5" required />
+            <button type="submit">Set</button>
+          </form>
+        </section>
+
+        <section class="telephone-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Communications</p>
+              <h2>Telephone</h2>
+            </div>
+            <span id="telephone-state" class="state-pill off">Idle</span>
+          </div>
+          <p id="telephone-name" class="device-name">Wayne Manor telephone</p>
+          <div class="button-row development-only" role="group" aria-label="Telephone test">
+            <button id="telephone-ring" type="button">Test ring</button>
+            <button id="telephone-stop" type="button" class="secondary">Stop</button>
+          </div>
+          <button id="ringtone-enable" type="button" class="secondary ringtone-enable hidden">
+            Enable room audio
+          </button>
+        </section>
+
+        <section class="spotify-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Music room</p>
+              <h2>Turntable</h2>
+            </div>
+            <span id="spotify-state" class="state-pill off">Offline</span>
+          </div>
+          <p id="spotify-track" class="device-name">Spotify is not connected</p>
+          <button id="spotify-connect" type="button" class="spotify-connect">
+            Connect Spotify
+          </button>
+          <label class="field-label" for="spotify-volume">
+            Volume <output id="spotify-volume-value" for="spotify-volume">50%</output>
+          </label>
+          <input id="spotify-volume" type="range" min="0" max="100" value="50" step="1" />
+          <div class="button-row development-only media-controls" role="group" aria-label="Spotify test controls">
+            <button id="spotify-play" type="button">Play</button>
+            <button id="spotify-pause" type="button" class="secondary">Pause</button>
+            <button id="spotify-next" type="button" class="secondary">Next</button>
+            <button id="spotify-stop" type="button" class="secondary">Stop</button>
+          </div>
+        </section>
+
+        <p id="message" class="message" role="status" aria-live="polite">Wayne Manor is initializing.</p>
+      </aside>
+
+      <div class="scene-hint surface">Drag to orbit · Scroll to zoom</div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

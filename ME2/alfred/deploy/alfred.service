@@ -1,0 +1,20 @@
+[Unit]
+Description=Alfred on-device voice assistant
+Wants=pipewire.service wireplumber.service
+After=pipewire.service wireplumber.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/alfred
+ExecStart=%h/alfred/.venv/bin/python -m alfred
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=10
+Environment=PYTHONUNBUFFERED=1
+Environment=ORT_DISABLE_TELEMETRY=1
+EnvironmentFile=-%h/alfred/.env
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

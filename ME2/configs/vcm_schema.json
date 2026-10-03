@@ -1,0 +1,38 @@
+{
+  "schema_name": "VCM canonical schema",
+  "schema_version": "1.0.0",
+  "source": "primer/Dataset Schema.xlsx:Option A",
+  "language": "en",
+  "intents": [
+    {"name": "PLAY_MUSIC", "slot": null},
+    {"name": "WEATHER", "slot": null},
+    {"name": "TIME", "slot": null},
+    {"name": "LIGHT_ON", "slot": null},
+    {"name": "LIGHT_OFF", "slot": null},
+    {"name": "PAUSE", "slot": null},
+    {"name": "STOP", "slot": null},
+    {"name": "NEXT", "slot": null},
+    {"name": "VOLUME_UP", "slot": null},
+    {"name": "VOLUME_DOWN", "slot": null},
+    {"name": "CALL", "slot": null},
+    {"name": "MESSAGE", "slot": null},
+    {"name": "LIST_REMINDERS", "slot": null},
+    {"name": "TIMER", "slot": "duration"},
+    {"name": "ALARM", "slot": "time"},
+    {"name": "TEMPERATURE", "slot": "degrees"},
+    {"name": "BRIGHTNESS", "slot": "percent"},
+    {"name": "COLOR", "slot": "color"},
+    {"name": "CREATE_REMINDER", "slot": "task"}
+  ],
+  "rejection_policy": {
+    "unknown_is_canonical_intent": false,
+    "no_command_is_canonical_intent": false,
+    "outcomes": ["execute", "low_confidence", "unsupported"]
+  },
+  "deferred_slots": {
+    "PLAY_MUSIC": ["song", "artist", "album", "playlist"],
+    "CALL": ["contact"],
+    "MESSAGE": ["contact", "content"]
+  }
+}
+

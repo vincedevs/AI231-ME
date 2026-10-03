@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alfred-edge"
+version = "1.0.0"
+description = "On-device Alfred voice assistant for Raspberry Pi 5"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "numpy>=1.26,<3",
+  "onnxruntime>=1.18,<2",
+  "sounddevice>=0.5,<1",
+  "soundfile>=0.12.1,<1",
+  "sherpa-onnx>=1.13.8,<2",
+  # Declared explicitly because sherpa-onnx's published lock metadata does not
+  # reliably expose its matching native core dependency to uv on every platform.
+  "sherpa-onnx-core>=1.13.8,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.11,<1",
+]
+
+[project.scripts]
+alfred = "alfred.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

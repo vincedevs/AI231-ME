@@ -1,0 +1,114 @@
+# Local/private agent instructions
+AGENTS.md
+**/AGENTS.md
+.agents/
+.codex/
+
+# Operating-system and editor state
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Credentials and private configuration
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+secrets/
+**/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+
+# Python environments, caches, and build output
+.python-version.local
+.venv/
+**/.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.cache/
+.ipynb_checkpoints/
+.huggingface/
+wandb/
+mlruns/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+build/
+dist/
+wheelhouse/
+
+# JavaScript dependencies and generated frontend bundles
+node_modules/
+**/node_modules/
+wayne_manor/frontend/dist/
+
+# Logs, runtime state, and local captures
+*.log
+logs/
+captures/
+benchmark_results/
+**/benchmark_results/
+*.sqlite
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+:memory:.ses
+
+# Local datasets and materialized releases. Keep only dataset/README.md.
+dataset/**
+!dataset/README.md
+
+# Training products are reproducible but too large for Git. Curated summaries
+# live under results/experiments/ and the deployed models live under alfred/.
+models/experiments/
+models/experiments_previous/
+models/third_party/
+*.pt
+*.pth
+*.ckpt
+events.out.tfevents.*
+.matplotlib-cache/
+
+# Reject model binaries by default, then allow only the checked runtime bundle.
+*.onnx
+*.ort
+!alfred/assets/models/wake_word/hey_alfred.onnx
+!alfred/assets/models/wake_word/im_batman.onnx
+!alfred/assets/models/wake_word/melspectrogram.onnx
+!alfred/assets/models/wake_word/embedding.onnx
+!alfred/assets/models/vad/silero_vad.onnx
+!alfred/assets/models/tts/vits-piper-en_GB-alan-medium/en_GB-alan-medium.onnx
+!alfred/assets/models/vcm/21c7b228fd63-20559251ca67/model.onnx
+!alfred/assets/models/vcm/3a2a4c8540bd-67de9defe703/model.onnx
+
+# Optional clarification ASR is installed from its pinned upstream archive.
+alfred/assets/models/asr/
+
+# Generated reports/decks and tool scratch space. The final deck is retained at
+# repository root as me2-deck.pdf.
+output/
+reports/
+tmp/
+.codex-build-deck/
+
+# External benchmark checkout and its generated runs. Clone the pinned revision
+# documented in README.md when reproducing the physical Raspberry Pi benchmark.
+vcm-benchmark/

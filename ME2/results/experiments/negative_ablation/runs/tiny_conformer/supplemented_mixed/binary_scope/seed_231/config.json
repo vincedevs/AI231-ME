@@ -1,0 +1,106 @@
+{
+  "architectures": [
+    "tiny_conformer"
+  ],
+  "audio": {
+    "hop_length": 160,
+    "maximum_hertz": 7600.0,
+    "maximum_seconds": 12.0,
+    "minimum_hertz": 20.0,
+    "n_fft": 400,
+    "n_mels": 40,
+    "sample_rate": 16000
+  },
+  "augmentation": {
+    "gain_db": [
+      -6.0,
+      6.0
+    ],
+    "gaussian_noise_snr_db": [
+      15.0,
+      35.0
+    ],
+    "probability": 0.8,
+    "time_shift_ms": 100
+  },
+  "data_conditions": [
+    "supplemented_mixed",
+    "supplemented_mixed_with_negatives"
+  ],
+  "dataset_release_sha256": "d141033c871b388b2dc889f3513caa800a392ec256d2fee2eb66354fb3b53e05",
+  "environment": {
+    "device": "cuda:0",
+    "python": "3.12.3",
+    "pytorch": "2.14.1+cu130"
+  },
+  "evaluation": {
+    "bootstrap_confidence": 0.95,
+    "bootstrap_samples": 500,
+    "bootstrap_seed": 231,
+    "calibration_bins": 15,
+    "latency_timed_runs": 50,
+    "latency_warmup_runs": 5,
+    "maximum_unsupported_false_accept_rate": 0.05,
+    "minimum_intent_confidence": 0.0,
+    "onnx_absolute_tolerance": 0.0001,
+    "onnx_opset": 17,
+    "onnx_relative_tolerance": 0.001,
+    "onnx_validation_seconds": [
+      1.0,
+      2.0,
+      3.0
+    ],
+    "report_strata": [
+      "real",
+      "synthetic",
+      "all"
+    ],
+    "scope_threshold_policy": "maximum_recall_at_false_accept_constraint"
+  },
+  "experiment": {
+    "architecture": "tiny_conformer",
+    "data_condition": "supplemented_mixed",
+    "rejection_strategy": "binary_scope",
+    "seed": 231
+  },
+  "experiment_name": "tiny_conformer_negative_ablation",
+  "experiment_version": "1.0.0",
+  "paths": {
+    "output_root": "models/experiments/tiny_conformer_negative_ablation",
+    "prepared_dataset": "dataset/prepared_negative_ablation"
+  },
+  "rejection_strategies": [
+    "binary_scope"
+  ],
+  "replication_seeds": [
+    231,
+    947
+  ],
+  "seed": 231,
+  "selection": {
+    "maximum_in_scope_false_reject_rate": 0.15,
+    "maximum_unsupported_false_accept_rate": 0.05,
+    "primary_metric": "intent_macro_f1",
+    "secondary_metric": "joint_intent_slot_accuracy",
+    "tie_breakers": [
+      "onnx_size_bytes",
+      "onnx_cpu_latency_p95_ms"
+    ]
+  },
+  "study_mode": "fixed_condition_ablation",
+  "training": {
+    "batch_size": 64,
+    "early_stopping_patience": 6,
+    "epochs": 35,
+    "gradient_clip_norm": 5.0,
+    "label_smoothing": 0.05,
+    "learning_rate": 0.0009741372095369595,
+    "minimum_learning_rate": 1e-05,
+    "mixed_precision": true,
+    "num_workers": 8,
+    "scope_loss_weight": 0.5,
+    "slot_loss_weight": 0.5,
+    "unsupported_batch_fraction": 0.15,
+    "weight_decay": 2.300985610287488e-06
+  }
+}

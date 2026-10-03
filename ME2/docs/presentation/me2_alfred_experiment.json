@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "ME2 — ALFRED: Voice Controlled Smart Device",
+    "date": "October 3, 2026",
+    "author_or_team": "Not recorded; add before submission",
+    "deployment_target": "Raspberry Pi 5",
+    "claim_boundary": "Wake-word and VCM inference run locally. Some action handlers use network-backed services."
+  },
+  "model": {
+    "architecture": "Tiny Conformer",
+    "parameters": 936349,
+    "parameters_millions": 0.936349,
+    "onnx_weights_bytes": 4554103,
+    "weights_mb": 4.554103,
+    "input": {
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "maximum_command_seconds": 12,
+      "minimum_samples": 400
+    },
+    "acoustic_frontend": {
+      "type": "log-Mel spectrogram",
+      "mel_bins": 40,
+      "fft_window_samples": 400,
+      "hop_samples": 160,
+      "frequency_range_hz": [20, 7600]
+    },
+    "encoder": {
+      "temporal_mode": "utterance-level full-context; not causal or streaming",
+      "conformer_layers": 4,
+      "model_dimension": 96,
+      "attention_heads": 4,
+      "subsampling": "two stride-2 Conv1D layers",
+      "kv_cache": "not used"
+    },
+    "outputs": {
+      "intent_classes": 19,
+      "slots": ["time", "percent", "color", "task", "degrees", "duration"],
+      "slot_decoder": "character-level CTC, 40 tokens including blank",
+      "rejection_head": "binary in-scope classifier"
+    },
+    "runtime": "ONNX Runtime"
+  },
+  "dataset": {
+    "primary_source": {
+      "name": "airimonda/ai231-me2-voice-commands",
+      "url": "https://huggingface.co/datasets/airimonda/ai231-me2-voice-commands",
+      "pinned_revision": "da92a79ffde3031d5bb2a25138d9dd7d9f7ed006"
+    },
+    "preparation": "Pinned benchmark release plus leakage-screened prior real-audio supplements. The winning supplemented_mixed condition includes the benchmark synthetic training partition but excludes the separate supplemental_synth extension.",
+    "prepared_release": {
+      "records": 35810,
+      "hours": 23.726,
+      "documented_speakers_across_disjoint_splits": 622,
+      "intents": 19,
+      "slots": 6,
+      "unique_audio": 35810
+    },
+    "splits": {
+      "train": {"records": 29406, "hours": 19.722, "speakers": 423},
+      "validation": {"records": 1760, "hours": 1.372, "speakers": 48, "real_audio_only": true, "speaker_disjoint": true},
+      "test": {"records": 4443, "hours": 2.454, "speakers": 144, "frozen": true, "real_records": 824, "synthetic_records": 3619},
+      "holdout": {"records": 201, "hours": 0.178, "speakers": 7, "sealed_during_selection": true, "evaluated_after_selection": true}
+    },
+    "selected_training_condition": {
+      "name": "supplemented_mixed",
+      "records": 25423,
+      "supported": 23468,
+      "unsupported": 1955,
+      "synthetic": 8374,
+      "slot_annotated": 9434
+    },
+    "leakage_controls": [
+      "No speaker overlap across train, validation, test, and holdout",
+      "No recording-group overlap across splits",
+      "Synthetic audio excluded from validation",
+      "Sealed holdout excluded from training, HPO, calibration, and selection"
+    ]
+  },
+  "training_cluster": {
+    "execution": "DGX cluster with CUDA_VISIBLE_DEVICES restricted to one GPU",
+    "recorded_environment": {"python": "3.12.3", "pytorch": "2.14.0+cu130", "device": "cuda:0"},
+    "gpu_model": "NVIDIA A100",
+    "gpu_count_used": 1,
+    "budgeted_study_wall_clock_seconds": 8792.748,
+    "budgeted_study_wall_clock_hours": 2.442,
+    "architectures_compared": ["TC-ResNet", "Tiny Conformer"],
+    "selection_protocol": "Validation-only TPE HPO, followed by fixed-condition replication with seeds 231 and 947. Test reporting did not select the winner.",
+    "selected_run": {
+      "seed": 231,
+      "maximum_epochs": 35,
+      "best_epoch": 35,
+      "batch_size": 64,
+      "learning_rate": 0.0009741372095369595,
+      "weight_decay": 0.000002300985610287488,
+      "label_smoothing": 0.05,
+      "mixed_precision": true,
+      "early_stopping_patience": 6
+    },
+    "objective": "Smoothed intent cross-entropy + 0.5 character-CTC slot loss + 0.5 binary in-scope BCE",
+    "optimiser": "AdamW with learning-rate scheduling, gradient clipping, and augmentation"
+  },
+  "evaluation": {
+    "validation": {
+      "intent_macro_f1": 0.739415159712447,
+      "joint_intent_slot_accuracy": 0.6310415248468346,
+      "unsupported_false_accept_rate": 0.048109965635738834,
+      "in_scope_false_reject_rate": 0.471068754254595
+    },
+    "frozen_test_all_audio": {
+      "intent_accuracy": 0.9485949280328992,
+      "intent_macro_f1": 0.926565670528381,
+      "note": "Interpret with care: the frozen test contains 3,619 synthetic and 824 real clips. Real-speech metrics are reported separately in the experiment artifacts."
+    },
+    "rejection_calibration": {
+      "selection_split": "validation only",
+      "scope_threshold": 0.9999032967447421,
+      "intent_threshold": 0.866007924079895,
+      "policy": "Execute only if in-scope score and intent confidence both meet their thresholds.",
+      "target_action_precision": 0.95,
+      "validation_action_precision": 0.9503649635036496,
+      "validation_unsupported_execution_rate": 0.027491408934707903
+    },
+    "raspberry_pi_5": {
+      "status": "Completed full physical benchmark on October 3, 2026: 202 Hugging Face holdout trials plus 16 no-wake trials",
+      "device": "Raspberry Pi 5 Model B Rev 1.1, 8 GB, Debian GNU/Linux 13, aarch64",
+      "keyword_accuracy_percent": 90.0990099009901,
+      "intent_accuracy_percent": 52.47524752475248,
+      "intent_macro_precision_percent": 93.68807339449541,
+      "intent_macro_recall_percent": 53.2986111111111,
+      "intent_macro_f1_percent": 62.64721600238842,
+      "command_accuracy_percent": 49.504950495049506,
+      "false_accept_rate_percent": 6.25,
+      "false_reject_rate_percent": 50.53763440860215,
+      "slot_exact_match_percent": 87.75510204081633,
+      "vcm_inference_mean_ms": 8.833675824175826,
+      "latency_p95_ms": 12.373949999999999,
+      "response_latency_p95_seconds": 1.6788968801498412,
+      "rtf_p95": 0.006303561476837337,
+      "peak_rss_mb": 543.3,
+      "maximum_temperature_c": 56.8,
+      "onnxruntime_threads": null
+    },
+    "wake_word": {
+      "implementation": "Two custom OpenWakeWord transfer-learning classifiers with shared pretrained frontend and embedding models",
+      "held_out_accuracy": null,
+      "false_accepts_per_hour": null,
+      "status": "Original phrase-specific training manifests and held-out predictions were not retained; a dedicated real-audio evaluation is required."
+    }
+  },
+  "submission": {
+    "github_repository": {
+      "url": "https://github.com/vincedevs/AI231-ME",
+      "public_status": "Not verified from local repository artifacts",
+      "licence": "No top-level project licence file found"
+    },
+    "dataset_location": {
+      "primary_url": "https://huggingface.co/datasets/airimonda/ai231-me2-voice-commands",
+      "primary_revision": "da92a79ffde3031d5bb2a25138d9dd7d9f7ed006",
+      "supplement_url": "https://huggingface.co/datasets/vincedevs/alfred-vcm-supplement",
+      "supplement_revision": "c376ada37c0eea13a4db1893cc854a347e5d25b5",
+      "doi": "Not available in local artifacts",
+      "access_terms": "Per-source terms are documented in docs/dataset_redistribution.md; 11,095 restricted-source supplement rows are metadata-only and require reacquisition from the original sources."
+    },
+    "training_artifacts": {
+      "status": "Compact configurations, HPO records, metrics, predictions, plots, calibration records, and deployment metadata are retained in results/experiments; large reproducible checkpoints are excluded from Git.",
+      "publication_status": "Prepared for repository publication"
+    },
+    "model_weights": {
+      "release_url": "Included under alfred/assets/models/vcm/ with checksums in alfred/assets/models/manifest.json",
+      "licence": "Not defined"
+    }
+  },
+  "reviewer_checklist": [
+    {"item": "Repo public, one-command reproduction", "status": "Partial: reproducible commands and uv locks exist; public GitHub visibility remains to be verified after push"},
+    {"item": "Dataset licensed and citable (DOI)", "status": "Partial: pinned Hugging Face locations and per-source terms are documented; no DOI is available in retained artifacts"},
+    {"item": "Training logs + final checkpoint committed", "status": "Partial: compact experiment evidence and final ONNX are retained; large framework checkpoints are reproducible but intentionally excluded"},
+    {"item": "Pi 5 latency reproduced by the posted script", "status": "Complete: full physical benchmark evidence is retained under results/raspberry_pi/vcm_benchmark_20261003"},
+    {"item": "Held-out test set, unseen speakers", "status": "Complete: the sealed holdout was evaluated only after model selection in the final Raspberry Pi benchmark"},
+    {"item": "Baseline of comparable size compared", "status": "Partial: TC-ResNet baseline was compared under the same protocol, but it is smaller at 144,381 parameters versus 936,349"}
+  ],
+  "provenance": {
+    "model_artifact": "results/experiments/budgeted/runs/tiny_conformer/supplemented_mixed/binary_scope/seed_231/metrics.json",
+    "dataset_release": "results/experiments/budgeted/dataset_release.json",
+    "experiment_configuration": "results/experiments/budgeted/runs/tiny_conformer/supplemented_mixed/binary_scope/seed_231/config.json",
+    "deployment_metadata": "alfred/assets/models/vcm/21c7b228fd63-20559251ca67/metadata.json",
+    "wake_word_evidence": "docs/openwakeword_models.md",
+    "raspberry_pi_benchmark": "results/raspberry_pi/vcm_benchmark_20261003/metrics.json"
+  }
+}

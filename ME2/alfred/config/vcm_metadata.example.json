@@ -1,0 +1,57 @@
+{
+  "metadata_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "sample_rate": 16000,
+  "intent_labels": [
+    "PLAY_MUSIC",
+    "WEATHER",
+    "TIME",
+    "LIGHT_ON",
+    "LIGHT_OFF",
+    "PAUSE",
+    "STOP",
+    "NEXT",
+    "VOLUME_UP",
+    "VOLUME_DOWN",
+    "CALL",
+    "MESSAGE",
+    "LIST_REMINDERS",
+    "TIMER",
+    "ALARM",
+    "TEMPERATURE",
+    "BRIGHTNESS",
+    "COLOR",
+    "CREATE_REMINDER"
+  ],
+  "slot_by_intent": {
+    "TIMER": "duration",
+    "ALARM": "time",
+    "TEMPERATURE": "degrees",
+    "BRIGHTNESS": "percent",
+    "COLOR": "color",
+    "CREATE_REMINDER": "task"
+  },
+  "slot_tokens": [
+    "<blank>", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
+    "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w",
+    "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    "%", "'"
+  ],
+  "rejection_strategy": "binary_scope",
+  "temperature": 1.0,
+  "scope_threshold": 0.5,
+  "minimum_intent_confidence": 0.7,
+  "minimum_samples": 400,
+  "calibration_source": {
+    "temperature": "validation",
+    "scope_threshold": "validation",
+    "minimum_intent_confidence": "configured_before_test_evaluation"
+  },
+  "experiment": {
+    "architecture": "replace-with-selected-architecture",
+    "data_condition": "replace-with-selected-data-condition",
+    "rejection_strategy": "binary_scope",
+    "protocol": "speaker_generalization",
+    "seed": 231
+  }
+}

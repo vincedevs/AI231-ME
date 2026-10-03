@@ -1,0 +1,106 @@
+{
+  "experiment_name": "ai231_me2_voice_commands",
+  "experiment_version": "1.0.0",
+  "seed": 231,
+  "replication_seeds": [231, 947, 2027],
+  "architectures": [
+    "dscnn",
+    "tcresnet",
+    "bcresnet",
+    "crnn_attention",
+    "tiny_conformer"
+  ],
+  "data_conditions": [
+    "benchmark_real",
+    "benchmark_mixed",
+    "supplemented_real",
+    "supplemented_mixed",
+    "supplemented_mixed_extended"
+  ],
+  "rejection_strategies": [
+    "confidence",
+    "unknown_class",
+    "binary_scope"
+  ],
+  "paths": {
+    "prepared_dataset": "dataset/prepared",
+    "output_root": "models/experiments/ai231_me2_voice_commands"
+  },
+  "tuning": {
+    "trials_per_architecture": 15,
+    "epochs_per_trial": 25,
+    "early_stopping_patience": 5,
+    "reference_data_condition": "supplemented_real",
+    "reference_rejection_strategy": "binary_scope",
+    "sampler": "TPESampler",
+    "pruner": "MedianPruner",
+    "pruning_warmup_epochs": 5,
+    "search_space": {
+      "learning_rate": [0.0001, 0.001],
+      "weight_decay": [0.000001, 0.001],
+      "label_smoothing": [0.0, 0.05, 0.1],
+      "slot_loss_weight": [0.25, 0.5, 1.0],
+      "scope_loss_weight": [0.25, 0.5, 1.0],
+      "unsupported_batch_fraction": [0.1, 0.2, 0.3],
+      "batch_size": [32, 64]
+    }
+  },
+  "comparison": {
+    "reference_rejection_strategy": "binary_scope",
+    "rejection_finalists": 2,
+    "replication_finalists": 2
+  },
+  "selection": {
+    "maximum_unsupported_false_accept_rate": 0.05,
+    "maximum_in_scope_false_reject_rate": 0.15,
+    "primary_metric": "intent_macro_f1",
+    "secondary_metric": "joint_intent_slot_accuracy",
+    "tie_breakers": ["onnx_size_bytes", "onnx_cpu_latency_p95_ms"]
+  },
+  "audio": {
+    "sample_rate": 16000,
+    "maximum_seconds": 12.0,
+    "n_fft": 400,
+    "hop_length": 160,
+    "n_mels": 40,
+    "minimum_hertz": 20.0,
+    "maximum_hertz": 7600.0
+  },
+  "augmentation": {
+    "probability": 0.8,
+    "gain_db": [-6.0, 6.0],
+    "time_shift_ms": 100,
+    "gaussian_noise_snr_db": [15.0, 35.0]
+  },
+  "training": {
+    "epochs": 60,
+    "early_stopping_patience": 10,
+    "batch_size": 32,
+    "num_workers": 8,
+    "learning_rate": 0.0003,
+    "minimum_learning_rate": 0.00001,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "gradient_clip_norm": 5.0,
+    "slot_loss_weight": 0.5,
+    "scope_loss_weight": 0.5,
+    "unsupported_batch_fraction": 0.25,
+    "mixed_precision": true
+  },
+  "evaluation": {
+    "calibration_bins": 15,
+    "bootstrap_samples": 1000,
+    "bootstrap_confidence": 0.95,
+    "bootstrap_seed": 231,
+    "scope_threshold_policy": "maximum_recall_at_false_accept_constraint",
+    "maximum_unsupported_false_accept_rate": 0.05,
+    "minimum_intent_confidence": 0.0,
+    "report_strata": ["real", "synthetic", "all"],
+    "onnx_opset": 17,
+    "onnx_validation_seconds": [1.0, 2.0, 3.0],
+    "onnx_absolute_tolerance": 0.0001,
+    "onnx_relative_tolerance": 0.001,
+    "latency_warmup_runs": 10,
+    "latency_timed_runs": 100
+  }
+}

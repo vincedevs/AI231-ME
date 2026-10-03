@@ -1,0 +1,3 @@
+# Complete development environment. For a smaller role-specific environment,
+# install the corresponding optional dependency group from pyproject.toml.
+-e .[dataset,training,dev]

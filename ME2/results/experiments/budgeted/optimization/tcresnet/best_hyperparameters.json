@@ -1,0 +1,14 @@
+{
+  "architecture": "tcresnet",
+  "objective": 0.4690578507385458,
+  "parameters": {
+    "batch_size": 64,
+    "label_smoothing": 0.05,
+    "learning_rate": 0.0009741372095369595,
+    "scope_loss_weight": 0.5,
+    "slot_loss_weight": 0.5,
+    "unsupported_batch_fraction": 0.15,
+    "weight_decay": 2.300985610287488e-06
+  },
+  "trial": 3
+}

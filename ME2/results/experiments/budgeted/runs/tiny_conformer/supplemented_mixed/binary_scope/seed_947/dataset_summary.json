@@ -1,0 +1,103 @@
+{
+  "train": {
+    "by_intent": {
+      "ALARM": 1750,
+      "BRIGHTNESS": 1490,
+      "CALL": 359,
+      "COLOR": 1376,
+      "CREATE_REMINDER": 1968,
+      "LIGHT_OFF": 1084,
+      "LIGHT_ON": 1102,
+      "LIST_REMINDERS": 1281,
+      "MESSAGE": 1312,
+      "NEXT": 1199,
+      "PAUSE": 1159,
+      "PLAY_MUSIC": 1117,
+      "STOP": 999,
+      "TEMPERATURE": 1044,
+      "TIME": 1072,
+      "TIMER": 1946,
+      "VOLUME_DOWN": 1032,
+      "VOLUME_UP": 1035,
+      "WEATHER": 1143
+    },
+    "by_source": {
+      "common_voice": 33,
+      "esc50": 10,
+      "fsc": 3147,
+      "group_real": 487,
+      "group_synthetic": 8305,
+      "groupsyntheticoos": 69,
+      "rochester": 146,
+      "slurp": 5559,
+      "snips": 1436,
+      "speech_commands": 11,
+      "stop": 6151,
+      "timers_and_such": 26,
+      "xela": 43
+    },
+    "records": 25423,
+    "slot_annotated": 9434,
+    "slot_annotated_by_intent": {
+      "ALARM": 1729,
+      "BRIGHTNESS": 1456,
+      "COLOR": 1376,
+      "CREATE_REMINDER": 1954,
+      "TEMPERATURE": 1006,
+      "TIMER": 1913
+    },
+    "supplemental": 15037,
+    "supplemental_synthetic": 0,
+    "supported": 23468,
+    "synthetic": 8374,
+    "unsupported": 1955
+  },
+  "validation": {
+    "by_intent": {
+      "ALARM": 69,
+      "BRIGHTNESS": 88,
+      "CALL": 18,
+      "COLOR": 149,
+      "CREATE_REMINDER": 15,
+      "LIGHT_OFF": 140,
+      "LIGHT_ON": 137,
+      "LIST_REMINDERS": 6,
+      "MESSAGE": 3,
+      "NEXT": 24,
+      "PAUSE": 39,
+      "PLAY_MUSIC": 134,
+      "STOP": 60,
+      "TEMPERATURE": 31,
+      "TIME": 132,
+      "TIMER": 11,
+      "VOLUME_DOWN": 146,
+      "VOLUME_UP": 139,
+      "WEATHER": 128
+    },
+    "by_source": {
+      "common_voice": 3,
+      "fsc": 564,
+      "group_real": 133,
+      "rochester": 25,
+      "slurp": 796,
+      "snips": 213,
+      "timers_and_such": 5,
+      "xela": 21
+    },
+    "records": 1760,
+    "slot_annotated": 332,
+    "slot_annotated_by_intent": {
+      "ALARM": 67,
+      "BRIGHTNESS": 82,
+      "COLOR": 149,
+      "CREATE_REMINDER": 13,
+      "TEMPERATURE": 14,
+      "TIMER": 7
+    },
+    "supplemental": 1413,
+    "supplemental_synthetic": 0,
+    "supported": 1469,
+    "synthetic": 0,
+    "unsupported": 291
+  }
+}

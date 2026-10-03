@@ -1,0 +1,7 @@
+{
+  "architecture": "tcresnet",
+  "data_condition": "supplemented_real",
+  "rejection_strategy": "binary_scope",
+  "seed": 231,
+  "state": "complete"
+}

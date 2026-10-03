@@ -1,0 +1,37 @@
+{
+  "feedback_version": "1.0.0",
+  "sounds": {
+    "listening_start": "assets/sounds/listening_start.wav",
+    "listening_end": "assets/sounds/listening_end.wav",
+    "unsupported": "assets/sounds/unsupported.wav",
+    "low_confidence": "assets/sounds/low_confidence.wav",
+    "action_success": "assets/sounds/action_success.wav",
+    "action_failure": "assets/sounds/action_failure.wav",
+    "easter_egg_1": "assets/sounds/easter_egg_1.wav",
+    "easter_egg_2": "assets/sounds/easter_egg_2.wav",
+    "easter_egg_3": "assets/sounds/easter_egg_3.wav",
+    "easter_egg_4": "assets/sounds/easter_egg_4.wav",
+    "easter_egg_5": "assets/sounds/easter_egg_5.wav"
+  },
+  "announcements": {
+    "PLAY_MUSIC": "Playing music.",
+    "WEATHER": "Checking the weather.",
+    "TIME": "Checking the time.",
+    "LIGHT_ON": "Turning on the lights.",
+    "LIGHT_OFF": "Turning off the lights.",
+    "PAUSE": "Pausing playback.",
+    "STOP": "Stopping playback.",
+    "NEXT": "Skipping to the next item.",
+    "VOLUME_UP": "Increasing the volume.",
+    "VOLUME_DOWN": "Decreasing the volume.",
+    "CALL": "Calling your phone.",
+    "MESSAGE": "Sending a message.",
+    "LIST_REMINDERS": "Listing reminders.",
+    "TIMER": "Setting a timer for {duration}.",
+    "ALARM": "Setting an alarm for {time}.",
+    "TEMPERATURE": "Setting the temperature to {degrees}.",
+    "BRIGHTNESS": "Setting brightness to {percent}.",
+    "COLOR": "Changing the light color to {color}.",
+    "CREATE_REMINDER": "Creating a reminder to {task}."
+  }
+}

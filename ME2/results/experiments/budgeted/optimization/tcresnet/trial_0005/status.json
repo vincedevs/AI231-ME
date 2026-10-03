@@ -1,0 +1,14 @@
+{
+  "architecture": "tcresnet",
+  "batch": 251,
+  "batches": 267,
+  "best_validation_macro_f1": 0.36073406565468735,
+  "data_condition": "supplemented_real",
+  "elapsed_seconds": 76.45144534111023,
+  "epoch": 3,
+  "epochs": 12,
+  "mean_loss": 2.9857027787136365,
+  "rejection_strategy": "binary_scope",
+  "seed": 231,
+  "state": "training"
+}
