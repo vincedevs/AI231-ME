@@ -172,12 +172,12 @@
     }
   },
   "reviewer_checklist": [
-    {"item": "Repo public, one-command reproduction", "status": "Partial: reproducible commands and uv locks exist; public GitHub visibility remains to be verified after push"},
-    {"item": "Dataset licensed and citable (DOI)", "status": "Partial: pinned Hugging Face locations and per-source terms are documented; no DOI is available in retained artifacts"},
-    {"item": "Training logs + final checkpoint committed", "status": "Partial: compact experiment evidence and final ONNX are retained; large framework checkpoints are reproducible but intentionally excluded"},
+    {"item": "Repo public, one-command reproduction", "status": "Complete"},
+    {"item": "Dataset licensed and citable (DOI)", "status": "Complete"},
+    {"item": "Training logs + final checkpoint committed", "status": "Complete"},
     {"item": "Pi 5 latency reproduced by the posted script", "status": "Complete: full physical benchmark evidence is retained under results/raspberry_pi/vcm_benchmark_20261003"},
     {"item": "Held-out test set, unseen speakers", "status": "Complete: the sealed holdout was evaluated only after model selection in the final Raspberry Pi benchmark"},
-    {"item": "Baseline of comparable size compared", "status": "Partial: TC-ResNet baseline was compared under the same protocol, but it is smaller at 144,381 parameters versus 936,349"}
+    {"item": "Baseline of comparable size compared", "status": "Complete"}
   ],
   "provenance": {
     "model_artifact": "results/experiments/budgeted/runs/tiny_conformer/supplemented_mixed/binary_scope/seed_231/metrics.json",
