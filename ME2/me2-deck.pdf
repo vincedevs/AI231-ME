@@ -86,11 +86,13 @@ endobj
 /Font <<
 /F1 7 0 R
 /F1-0 11 0 R
-/F2 12 0 R
-/F3 13 0 R
+/F1-1 12 0 R
+/F2 13 0 R
+/F2-0 14 0 R
+/F3 15 0 R
 >>
 /XObject <<
-/FormXob.4418d4c220f21ba351cd12be2e749771 14 0 R
+/FormXob.4418d4c220f21ba351cd12be2e749771 16 0 R
 >>
 /ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
 >>
@@ -104,9 +106,10 @@ endobj
 endobj
 10 0 obj
 <<
-/Length 2090
+/Length 3331
 >>
 stream
+q
 q
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
@@ -293,6 +296,96 @@ S
 Q
 
 
+Q
+
+q
+0.0 0.0 841.8898 595.2756 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-1 12 Tf
+14.4 TL
+ET
+1 0.94902 0.862745 rg
+n
+205 476.4 20.8 41 re
+f*
+1 1 1 rg
+n
+225.8 354 616.0898 164 re
+f*
+0.917647 0.843137 0.705882 RG
+0.6 w
+n
+225.8 395.6 m
+810 395.6 l
+S
+n
+225.8 436 m
+810 436 l
+S
+n
+225.8 476.5 m
+810 476.5 l
+S
+0.815686 0.54902 0.12549 RG
+1.5 w
+n
+810 354 m
+810 518 l
+S
+0.541176 0.352941 0.078431 rg
+BT
+/F2-0 11 Tf
+13.2 TL
+ET
+BT
+1 0 0 1 303.5 489.6 Tm
+(github\056com\057vincedevs\057AI231\055ME \267 public \267 project\072 ME2\057 \267 MIT code) Tj
+T*
+ET
+BT
+/F2-0 10.5 Tf
+12.6 TL
+ET
+BT
+1 0 0 1 344.75 454.2 Tm
+(HF airimonda\057ai231\055me2\055voice\055commands \100 da92a79\056\056\056ed006) Tj
+T*
+ET
+BT
+1 0 0 1 325.85 442.5 Tm
+(HF vincedevs\057alfred\055vcm\055supplement \100 c376ada\056\056\056d25b5 \267 public) Tj
+T*
+ET
+BT
+/F2-0 13 Tf
+15.6 TL
+ET
+BT
+1 0 0 1 311.3 409.6 Tm
+(1 \327 NVIDIA A100 \267 CUDA\0720 \267 2\05644 h \267 seeds 231 and 947) Tj
+T*
+ET
+0.541176 0.352941 0.078431 rg
+BT
+/F2-0 9.8 Tf
+11.76 TL
+ET
+BT
+1 0 0 1 338.66 374.9 Tm
+(Tiny Conformer ONNX \267 4\05655 MB \267 ME2\057alfred\057assets\057models\057vcm\057) Tj
+T*
+ET
+BT
+1 0 0 1 321.02 363.5 Tm
+(artifact 21c7b228fd63\05520559251ca67 \267 checksummed \267 terms documented) Tj
+T*
+ET
+Q
+
+
 endstream
 endobj
 11 0 obj
@@ -306,6 +399,15 @@ endobj
 endobj
 12 0 obj
 <<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
 /BaseFont /Courier
 /Encoding /WinAnsiEncoding
 /Name /F2
@@ -313,7 +415,16 @@ endobj
 /Type /Font
 >>
 endobj
-13 0 obj
+14 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+15 0 obj
 <<
 /BaseFont /Helvetica-Bold
 /Encoding /WinAnsiEncoding
@@ -322,7 +433,7 @@ endobj
 /Type /Font
 >>
 endobj
-14 0 obj
+16 0 obj
 <<
 /BitsPerComponent 8
 /ColorSpace /DeviceRGB
@@ -338,7 +449,7 @@ Gb"-VFa+VPg\Cg+TARsnJ^P;eKaL^kTe06:['[?T]5'q[8C/Kq.0Q!qmM'khLEOE=Jd)ZPq&PjKZd3`:
 endstream
 endobj
 xref
-0 15
+0 17
 0000000000 65535 f 
 0000000015 00000 n 
 0000000282 00000 n 
@@ -349,17 +460,19 @@ xref
 0000000917 00000 n 
 0000001024 00000 n 
 0000362693 00000 n 
-0000363014 00000 n 
-0000365157 00000 n 
-0000365265 00000 n 
-0000365371 00000 n 
-0000365484 00000 n 
+0000363040 00000 n 
+0000366424 00000 n 
+0000366532 00000 n 
+0000366640 00000 n 
+0000366746 00000 n 
+0000366852 00000 n 
+0000366965 00000 n 
 trailer
 <<
-/Size 15
+/Size 17
 /Root 3 0 R
 /Info 1 0 R
 >>
 startxref
-515096
+516577
 %%EOF

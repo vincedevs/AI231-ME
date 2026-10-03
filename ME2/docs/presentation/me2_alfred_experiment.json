@@ -152,7 +152,7 @@
     "github_repository": {
       "url": "https://github.com/vincedevs/AI231-ME",
       "public_status": "Not verified from local repository artifacts",
-      "licence": "No top-level project licence file found"
+      "licence": "MIT License for original project source code; datasets, model weights, voices, and third-party assets retain their applicable upstream terms"
     },
     "dataset_location": {
       "primary_url": "https://huggingface.co/datasets/airimonda/ai231-me2-voice-commands",
@@ -168,7 +168,7 @@
     },
     "model_weights": {
       "release_url": "Included under alfred/assets/models/vcm/ with checksums in alfred/assets/models/manifest.json",
-      "licence": "Not defined"
+      "licence": "Excluded from the repository MIT code licence; applicable dataset and third-party terms are documented in the repository"
     }
   },
   "reviewer_checklist": [

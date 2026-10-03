@@ -12,10 +12,11 @@ This README is the entry point for reproducing the dataset, experiments,
 reported results, and final application. Component-specific detail is linked
 where it is useful rather than duplicated here.
 
-> **Licence status:** a repository-level licence has not yet been selected.
-> Unless and until a `LICENSE` file is added, the repository should not be
-> treated as granting reuse or redistribution rights. Third-party notices used
-> by Alfred are retained under `alfred/licenses/`.
+> **Licence:** original project source code is released under the
+> [MIT License](LICENSE). This licence does not relicense datasets, pretrained
+> models, generated model weights, voices, or other third-party assets. Those
+> materials remain subject to their documented upstream terms; Alfred's
+> third-party notices are retained under `alfred/licenses/`.
 
 ## System overview
 
